@@ -1,9 +1,9 @@
 // johannes.js
-var firstName = 'johannes'
+const firstName = 'johannes'
  
-var surname = 'potgeiter'
+const surname = 'potgeiter'
  
-var publicRole = 'Intern'
+const publicRole = 'Intern'
 
-var display= firstName  + surname  + publicRole +
+const display= firstName  + surname  + publicRole +
 document.querySelector('#johannes')
