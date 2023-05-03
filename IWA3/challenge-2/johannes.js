@@ -1,8 +1,9 @@
 // johannes.js
+var firstName = 'johannes'
+ 
+var surname = 'potgeiter'
+ 
+var publicRole = 'Intern'
 
-private firstname = "Johannes"
-private surname = "Potgieter"
-public role = "Intern"
-
-private display= firstname + " " + surname + " (" + role + ")"
-document.querySelector('#johannes').innerText = display
+var display= firstName  + surname  + publicRole +
+document.querySelector('#johannes')

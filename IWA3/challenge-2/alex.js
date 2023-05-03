@@ -1,8 +1,12 @@
 // alex.js
 
-private firstname = "Alex"
-private surname = "Naidoo"
-public role = "Head of Marketing"
+var firstName1 = 'alex'
+  
+var surname1 = 'naidoo'
+ 
+var publicRole1 = 'Head of Marketing'
 
-private display= firstname + " " + surname + " (" + role + ")"
-document.querySelector('#alex').innerText = display
+var display= firstName1  + surname1 +
+document.querySelector('#alex')
+
+
