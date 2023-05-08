@@ -1,12 +1,14 @@
-FREE_WARNING = 'Free shipping only applies to single customer orders'
-BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
-NONE_SELECTED = '0'
+const FREE_WARNING = 'Free shipping only applies to single customer orders'
+const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
+const NONE_SELECTED = '0'
 const customers = '1'
 const location = 'RSA'
 const location2 = 'NAM'
 const location3 = 'NK'
-currency = null
-const batteries = 35 
+const currency = null
+const batteries = 35
+
+console.log(FREE_WARNING)
 
 if (location = RSA) { shipping === 400 && currency === 'R' }
 
