@@ -5,12 +5,13 @@ const customers = 1
 const location = 'RSA'
 const location2 = 'NAM'
 const location3 = 'NK'
-const currency = null
+const currency1 = 'R'
 const batteries = 35
+const currency2 = '$'
 
 console.log(freeWarning)
 
-if (location == 'RSA') { shipping === 400 && currency === 'R' }
+if (location == 'RSA') { shipping === 400 && currency1 === 'R' }
 
 if (location2 == 'NAM') { 
   shipping = 600 }
@@ -21,7 +22,6 @@ else {shipping = 800
     shirts = 150 * noneSelected
     batteries = 35 * 2
     pens = 5 * noneSelected
-    shipping = null
     currency = '$'
     }
 
