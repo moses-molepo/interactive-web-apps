@@ -1,12 +1,13 @@
-const nickName= "Timmy";
+const nickName = '';
 const firstName = "Timothy";
 
 if (nickName || firstName){
     console.log(`Good Morning,${nickName}`)
     }
-     else (firstName || nickName) 
+     else 
     {
     console.log(`Good Morning,${firstName}`)
     }
  
     console.log("Good Morning!")
+    
