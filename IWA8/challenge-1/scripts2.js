@@ -62,4 +62,4 @@ const users = {
 }
 
 console.log(users.leo.firstName,users.leo.age,users.leo.address.houseNumber,users.leo.address.streetName,users.leo.address.postalCode,users.leo.balance)
-console.log(users.sarah.fullName,users.sarah.age,users.sarah.address.houseNumber,users.sarah.address.streetName,users.sarah.address.postalCode,users.sarah.balance)
+console.log(users.sarah.fullName,users.sarah.age,users.sarah.address.houseNumber,users.sarah.address.streetName,users.sarah.address.postalCode,users.sarah.parseInt(balance))

@@ -17,7 +17,7 @@ const leo = {
 	firstName: leoName ,
 	balance: leoBalance *-1,
 	accessId: '47afb389-8014-4d0b-aff3-e40203d2107f',
-	age: 24,
+	age:"Age : 24",
 	address: {
 		houseNumber: leoNumber,
 		streetName: leoStreet,
@@ -27,9 +27,9 @@ const leo = {
 
 const sarah = {
 	fullName: sarahName + sarahSurname,
-	age: 62,
+	age: 'Age : 62',
 	accessId: '6b279ae5-5657-4240-80e9-23f6b635f7a8',
-	balance: sarahBalance*-1,
+	balance: parseInt(sarahBalance*-1),
 	address: {
 		houseNumber: sarahNumber,
 		streetName: sarahStreet,

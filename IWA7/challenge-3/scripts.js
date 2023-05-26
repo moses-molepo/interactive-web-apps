@@ -19,4 +19,4 @@ const result = sarahPositive + leoPositive
 const finalResult = result.toFixed(2)
 
 
-console.log('\n','\n',leo, '\n',sarah,'\n','\n',divider,'\n',total,'R:',finalResult,'\n',divider,'\n','\n')
+console.log('\n','\n',leo, '\n',sarah,'\n','\n',divider,'\n',total,'R:',finalResult.split(' '),'\n',divider,'\n','\n')
