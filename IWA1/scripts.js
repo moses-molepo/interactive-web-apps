@@ -2,43 +2,77 @@ const MAX_NUMBER = 5
 const MIN_NUMBER = -5
 const STEP_AMOUNT = 1
 
-const number = document.querySelector('[data-key="number"]')
-const add = document.querySelector('[data-key="add"]')
-const subtract =document.querySelector('[data-key="subtract"]')
+const elements = {
+    number: document.querySelector('[data-key="number"]'),
+    add: document.querySelector('[data-key="add"]'),
+    subtract: document.querySelector('[data-key="subtract"]'),
+    
+}
+
+
+
+const updateColor = () => {
+
+     const value = parseInt(elements.number.value)
+     const singleStep = 250 / (MAX_NUMBER - MIN_NUMBER)
+
+     const distMax = MAX_NUMBER - value
+     const distMin = value - MIN_NUMBER
+
+     const maxValue = distMax * singleStep
+     const minValue = distMin * singleStep
+
+     
+     if(value >= STEP_AMOUNT ){
+       elements.number.style.color = `rgb(${maxValue},${minValue},10)`
+     }else if (value <= STEP_AMOUNT ) {
+       elements.number.style.color = `rgb(${maxValue},${minValue},10)`
+     }
+
+     if ( value == 0){
+        elements.number.style.color = ''
+     }
+   
+ }
 
 
 const addHandler = () => {
-    const newValue = parseInt (number.value) +STEP_AMOUNT
+    const newValue = parseInt (elements.number.value) + STEP_AMOUNT
 
-   number.value = newValue
+    elements.number.value = newValue
 
-   if(subtract.disabled === true){
-    subtract.disabled = false
+   if(elements.subtract.disabled === true){
+    elements.subtract.disabled = false
   }
 
 
    if(newValue >= MAX_NUMBER) {
-        add.disabled = true
+    elements.add.disabled = true
    }     
+   
+ updateColor ()
    
 }
 
-const subtractHandler = () => {
-    const newValue = parseInt (number.value) -STEP_AMOUNT
 
-    number.value = newValue
+
+const subtractHandler = () => {
+    const newValue = parseInt (elements.number.value) -STEP_AMOUNT
+
+    elements.number.value = newValue
 
  
-    if(add.disabled === true){
-        add.disabled = false
+    if(elements.add.disabled === true){
+        elements.add.disabled = false
      }
   
     
     if(newValue <= MIN_NUMBER) {
-        subtract.disabled = true
+        elements.subtract.disabled = true
     }    
-
+   
+    updateColor ()
 }
 
-add.addEventListener('click', addHandler)
-subtract.addEventListener('click', subtractHandler) 
+elements.add.addEventListener('click', addHandler)
+elements.subtract.addEventListener('click', subtractHandler) 

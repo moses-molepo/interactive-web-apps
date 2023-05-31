@@ -16,7 +16,7 @@
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
             <script src="scripts.js" defer></script>
         </head>
-            <body>
+            <body style="border: 30px solid limegreen" >
                 <header class="header">
                     <h1>
                         Tally counter
@@ -49,11 +49,15 @@
 
                 <main class="counter">
                     <input class="counter__value" data-key ="number" readonly value="0">
+
                       <div class="counter__actions">
+
                          <button data-key="add" class="counter__button
                          counter__button_first">+</button>
+
                          <button data-key="subtract" class="counter__button
                          counter__button">-</button>
+
                       </div>
                 </main>
                 <footer>Inspired by <a class="footer__link"

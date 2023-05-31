@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    margin: 0;
+    
     background:var(--color-mediumgray); 
     color: var(--color-white);  
     font-family: Roboto, Arial, Helvetica, sans-serif; 

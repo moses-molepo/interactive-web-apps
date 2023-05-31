@@ -1,6 +1,6 @@
 // script.js
 
-
+ 
 const order1 = document.querySelector('[data-key="order1"]');
 const order1Biscuits = order1.querySelector('.biscuits .count');
 const order1Donuts = order1.querySelector('.donuts .count');
@@ -36,4 +36,5 @@ order3Biscuits.textContent = order3.getAttribute('data-biscuits');
 order3Donuts.textContent = order3.getAttribute('data-donuts');
 order3Pancakes.textContent = order3.getAttribute('data-pancakes');
 order3Status.textContent = order3.getAttribute('data-delivered') === 'true' ? 'Delivered' : 'Pending';
+
 

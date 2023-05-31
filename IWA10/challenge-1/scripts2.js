@@ -53,58 +53,60 @@ const futureId = 9
 
 // Do not change code above this comment
 
-console.log(`ID ${futureId} not created yet`)
-let copied = holidays[6].name
- copied = { name: 'X-mas Day',
- date: new Date(`25 December ${currentYear}`)        
-}
+console.log(`ID ${futureId} not created yet`);
+let copied = holidays[6].name;
+copied = { name: "X-mas Day", date: new Date(`25 December ${currentYear}`) };
 
 
-correctDate = copied.date
-correctDate.setHours(00)
-correctDate.setMinutes(00)
-isEarlier = copied.date < holidays[6].date
-console.log('New date is earlier:', isEarlier)
+correctDate = copied.date;
+correctDate.setHours(00);
+correctDate.setMinutes(00);
+isEarlier = copied.date < holidays[6].date;
+console.log("New date is earlier:", isEarlier);
 
 if (isEarlier && copied.date == correctDate) {
-console.log('ID change:',holidays[christmas].id !== copied.id && copied.id)
-console.log('Name change:', holidays[christmas].name != copied.name && copied.name)
-console.log('Date change:', holidays[christmas].date != copied.date && copied.date)
+  console.log("ID change:", holidays[christmas].id !== copied.id && copied.id);
+  console.log(
+    "Name change:",
+    holidays[christmas].name != copied.name && copied.name
+  );
+  console.log(
+    "Date change:",
+    holidays[christmas].date != copied.date && copied.date
+  );
 }
 
 const firstHolidayTimestamp = Math.min(
-    Date.parse(holidays[0].date),
-    Date.parse(holidays[1].date),
-    Date.parse(holidays[2].date),
-    Date.parse(holidays[3].date),
-    Date.parse(holidays[4].date),
-    Date.parse(holidays[5].date),
-    Date.parse(holidays[6].date),
-    Date.parse(holidays[7].date),
-    Date.parse(holidays[8].date),
-)
+  Date.parse(holidays[0].date),
+  Date.parse(holidays[1].date),
+  Date.parse(holidays[2].date),
+  Date.parse(holidays[3].date),
+  Date.parse(holidays[4].date),
+  Date.parse(holidays[5].date),
+  Date.parse(holidays[6].date),
+  Date.parse(holidays[7].date),
+  Date.parse(holidays[8].date)
+);
 
 const lastHolidayTimestamp = Math.max(
-    Date.parse(holidays[0].date),
-    Date.parse(holidays[1].date),
-    Date.parse(holidays[2].date),
-    Date.parse(holidays[3].date),
-    Date.parse(holidays[4].date),
-    Date.parse(holidays[5].date),
-    Date.parse(holidays[6].date),
-    Date.parse(holidays[7].date),
-    Date.parse(holidays[8].date),
-)
+  Date.parse(holidays[0].date),
+  Date.parse(holidays[1].date),
+  Date.parse(holidays[2].date),
+  Date.parse(holidays[3].date),
+  Date.parse(holidays[4].date),
+  Date.parse(holidays[5].date),
+  Date.parse(holidays[6].date),
+  Date.parse(holidays[7].date),
+  Date.parse(holidays[8].date)
+);
 
-let firstDay = new Date (firstHolidayTimestamp)
-
-
-let firstMonth =new Date (firstHolidayTimestamp)
-let lastDay = new Date (lastHolidayTimestamp)
-let lastMonth =new Date (lastHolidayTimestamp)
+let firstDay = new Date (firstHolidayTimestamp).getDate().toString();
+let firstMonth =new Date (firstHolidayTimestamp).getMonth().toString();
+let lastDay = new Date (lastHolidayTimestamp).getDate().toString();
+let lastMonth =new Date (lastHolidayTimestamp).getMonth().toString();
 
 console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomHoliday = holidays[Math.random]
-console.log(randomHoliday[Date])
+const randomHoliday = holidays[Math.random(Math.floor())];
+console.log(randomHoliday);
