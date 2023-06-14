@@ -9,6 +9,7 @@ function internal() {
   const multiplied = multiply(8, 4, 2);
   console.log(added);
   console.log(multiplied);
+
 }
 
 internal();

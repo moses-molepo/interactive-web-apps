@@ -59,8 +59,8 @@ copied = { name: "X-mas Day", date: new Date(`25 December ${currentYear}`) };
 
 
 correctDate = copied.date;
-correctDate.setHours(00);
-correctDate.setMinutes(00);
+correctDate.setHours(0);
+correctDate.setMinutes(0);
 isEarlier = copied.date < holidays[6].date;
 console.log("New date is earlier:", isEarlier);
 
@@ -101,12 +101,12 @@ const lastHolidayTimestamp = Math.max(
 );
 
 let firstDay = new Date (firstHolidayTimestamp).getDate().toString();
-let firstMonth =new Date (firstHolidayTimestamp).getMonth().toString();
+let firstMonth =new Date (firstHolidayTimestamp).getMonth()+1;
 let lastDay = new Date (lastHolidayTimestamp).getDate().toString();
-let lastMonth =new Date (lastHolidayTimestamp).getMonth().toString();
+let lastMonth =new Date (lastHolidayTimestamp).getMonth()+1;
 
 console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomHoliday = holidays[Math.random(Math.floor())];
+const randomHoliday = holidays[Math.floor(Math.random() * 9)];
 console.log(randomHoliday);
