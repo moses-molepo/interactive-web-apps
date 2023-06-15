@@ -3,15 +3,16 @@
 const add = (a, b) => console.log(a + b);
 
 const multiply = (a, b, c) => console.log(a * (b + c));
-let calculated = false
+let calculated = false;
+
 function internal() {
-	if(!calculated){
-  const added = add(4, 8);
-  const multiplied = multiply(8, 4, 2);
-  console.log(added);
-  console.log(multiplied);
-  calculated = true
-	}
+  if (!calculated) {
+    const added = add(4, 8);
+    const multiplied = multiply(8, 4, 2);
+    console.log(added);
+    console.log(multiplied);
+    calculated = true;
+  }
 }
 
 internal();
