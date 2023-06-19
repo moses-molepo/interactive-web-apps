@@ -63,9 +63,10 @@ const MONTHS = [
 
   
   const createHtml = (athlete) => {
-    const [firstName, surname, id, races] = athlete;
-    const [date, time] = races[races.length - 1];
-  
+    const {firstName, surname, id, races} = athlete;
+    const [ latestRace ] = races.slice(-1)
+    const {date, time} = latestRace;
+
     const fragment = document.createDocumentFragment();
   
     const title = document.createElement('h2');
@@ -73,10 +74,11 @@ const MONTHS = [
     fragment.appendChild(title);
   
     const list = document.createElement('dl');
-  
-    const day = date.getDate();
-    const month = date.getMonth(); // Assuming MONTHS is an array containing month names
-    const year = date.getFullYear(); // Use getFullYear() to get the full year
+    
+    const raceDay = new Date(date)
+    const day = raceDay.getDate();
+    const month = MONTHS[raceDay.getMonth()]; //MONTHS is an array containing month names
+    const year = raceDay.getFullYear(); // Use getFullYear() to get the full year
   
     const [first, second, third, fourth] = time; // Use array destructuring to assign time values to variables
     const total = first + second + third + fourth;
@@ -92,7 +94,7 @@ const MONTHS = [
       <dd>${races.length}</dd>
   
       <dt>Event Date (Latest)</dt>
-      <dd>${day} ${MONTHS[month]} ${year}</dd>
+      <dd>${day} ${month} ${year}</dd>
   
       <dt>Total Time (Latest)</dt>
       <dd>${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}</dd>
@@ -104,8 +106,8 @@ const MONTHS = [
   };
   
   
-  const [NM372] = data.response.data.NM372; // Get the first athlete
-  const [SV782] = data.response.data.SV782; // Get the second athlete
+  const NM372 = data.response.data.NM372; // Get the first athlete
+  const SV782 = data.response.data.SV782; // Get the second athlete
   
   document.querySelector(`section[data-athlete="${NM372.id}"]`).appendChild(createHtml(NM372));
   document.querySelector(`section[data-athlete="${SV782.id}"]`).appendChild(createHtml(SV782));

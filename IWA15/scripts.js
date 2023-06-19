@@ -23,16 +23,12 @@ const extractBiggest = () => {
     return first.pop();
   }
 
-
-  
   if (third[third.length - 1] > 0) {
     return third.pop();
   }
 
-
  return second.pop()
 
- 
 };  
 
 // Only edit above
