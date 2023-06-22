@@ -1,5 +1,3 @@
- 
-
 // scripts.js
 
 const data = {
@@ -23,11 +21,12 @@ const extractBiggest = () => {
     return first.pop();
   }
 
-  if (third[third.length - 1] > 0) {
-    return third.pop();
+  if (second[second.length - 1] > third[third.length - 1]) {
+    return second.pop()
   }
 
- return second.pop()
+ return third.pop()
+
 
 };  
 
