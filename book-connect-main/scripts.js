@@ -94,7 +94,12 @@ document.documentElement.style.setProperty(
   "--color-light",
   themeMode[initialTheme].light
 );
-
+/**
+ * this is a continuation of the list of books displayed
+ * @param {list} event
+ * 
+ * @returns a longer version of the list with more books added 
+ */
 const bookPreview = (event) => {
   const overlay = document.querySelector("[data-list-active]");
   const title = document.querySelector("[data-list-title]");
@@ -129,7 +134,9 @@ detailsClose.addEventListener("click", () => {
 bookList.addEventListener("click", bookPreview);
 
 const showMoreButton = document.querySelector("[data-list-button]");
-
+/**
+ * this function will display more books
+ */
 const handleShowMore = () => {
   const fragment = document.createDocumentFragment();
   startIndex += 36;
@@ -177,7 +184,9 @@ showMoreButton.addEventListener("click", handleShowMore);
 
 const searchButton = document.querySelector("[data-header-search]");
 const searchOverlay = document.querySelector("[data-search-overlay]");
-
+/**
+ * this button is used to open the search form
+ */
 searchButton.addEventListener("click", (event) => {
   event.preventDefault();
   searchOverlay.style.display = "block";
