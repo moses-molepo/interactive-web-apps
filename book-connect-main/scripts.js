@@ -290,6 +290,7 @@ dataSearchForm.addEventListener("submit", (event) => {
       </div>`;
 
       fragment2.appendChild(sneakPeak);
+      sneakPeak.addEventListener("click", bookPreview);
     }
   }
   const listElement = document.querySelector("main.list");
