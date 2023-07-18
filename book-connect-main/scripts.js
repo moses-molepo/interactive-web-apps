@@ -47,11 +47,13 @@ bookList.appendChild(fragment);
 
 const settings = document.querySelector("[data-header-settings]");
 settings.addEventListener("click", (event) => {
+  event.preventDefault()
   document.querySelector("[data-settings-overlay]").style.display = "block";
 });
 
 const settingsCancel = document.querySelector("[data-settings-cancel]");
 settingsCancel.addEventListener("click", (event) => {
+  event.preventDefault()
   document.querySelector("[data-settings-overlay]").style.display = "none";
 });
 
@@ -71,6 +73,7 @@ const themeMode = {
 const form = document.getElementById("settings");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  document.querySelector("[data-settings-overlay]").style.display = "none"
   const theme = themeSelect.value;
   document.documentElement.style.setProperty(
     "--color-dark",
@@ -235,6 +238,7 @@ dataSearchAuthors.appendChild(authorFragment);
 const dataSearchForm = document.getElementById("search");
 dataSearchForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  searchOverlay.style.display = "none"
   const formData = new FormData(event.target);
   const filters = Object.fromEntries(formData);
   let result = [];
