@@ -167,7 +167,7 @@ class BookPreviewElement {
 
 function displayNextPageOfBookPreviews() {
   const fragment = document.createDocumentFragment();
-  const startingIndex = (page - 1) * BOOKS_PER_PAGE;
+  const startingIndex = page * BOOKS_PER_PAGE;
   const endingIndex = startingIndex + BOOKS_PER_PAGE;
 
   for (const { author, id, image, title } of matches.slice(startingIndex, endingIndex)) {
