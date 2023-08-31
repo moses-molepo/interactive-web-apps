@@ -58,33 +58,25 @@ const endingIndex = BOOKS_PER_PAGE;
 createAndAppendBookPreviews(matches, startingIndex, endingIndex);
 
 document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`;
-document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0;
+document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) < 0;
 
 document.querySelector('[data-list-button]').innerHTML = `
     <span>Show more</span>
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `;
 
-document.querySelector('[data-search-cancel]').addEventListener('click', () => {
-  document.querySelector('[data-search-overlay]').open = false;
-});
+function toggleOverlay(triggerSelector, targetSelector, openState = true) {
+  document.querySelector(triggerSelector).addEventListener('click', () => {
+    document.querySelector(targetSelector).open = openState;
+  });
+}
 
-document.querySelector('[data-settings-cancel]').addEventListener('click', () => {
-  document.querySelector('[data-settings-overlay]').open = false;
-});
-
-document.querySelector('[data-header-search]').addEventListener('click', () => {
-  document.querySelector('[data-search-overlay]').open = true;
-  document.querySelector('[data-search-title]').focus();
-});
-
-document.querySelector('[data-header-settings]').addEventListener('click', () => {
-  document.querySelector('[data-settings-overlay]').open = true;
-});
-
-document.querySelector('[data-list-close]').addEventListener('click', () => {
-  document.querySelector('[data-list-active]').open = false;
-});
+// Usage
+toggleOverlay('[data-search-cancel]', '[data-search-overlay]', false);
+toggleOverlay('[data-settings-cancel]', '[data-settings-overlay]', false);
+toggleOverlay('[data-header-search]', '[data-search-overlay]');
+toggleOverlay('[data-header-settings]', '[data-settings-overlay]');
+toggleOverlay('[data-list-close]', '[data-list-active]', false);
 
 document.querySelector('[data-search-form]').addEventListener('submit', (event) => {
   event.preventDefault();
@@ -153,33 +145,44 @@ document.querySelector('[data-search-form]').addEventListener('submit', (event) 
   document.querySelector('[data-search-overlay]').open = false;
 });
 
-function createBookPreviewElement({ id, image, title, author }) {
-  const element = document.createElement('button');
-  element.classList = 'preview';
-  element.setAttribute('data-preview', id);
+class BookPreviewElement {
+  constructor({ id, image, title, author }) {
+    this.element = document.createElement('button');
+    this.element.classList = 'preview';
+    this.element.setAttribute('data-preview', id);
 
-  element.innerHTML = `
-    <img class="preview__image" src="${image}" />
-    <div class="preview__info">
-      <h3 class="preview__title">${title}</h3>
-      <div class="preview__author">${authors[author]}</div>
-    </div>
-  `;
+    this.element.innerHTML = `
+      <img class="preview__image" src="${image}" />
+      <div class="preview__info">
+        <h3 class="preview__title">${title}</h3>
+        <div class="preview__author">${authors[author]}</div>
+      </div>
+    `;
+  }
 
-  return element;
+  getElement() {
+    return this.element;
+  }
 }
 
 function displayNextPageOfBookPreviews() {
   const fragment = document.createDocumentFragment();
+  const startingIndex = (page - 1) * BOOKS_PER_PAGE;
+  const endingIndex = startingIndex + BOOKS_PER_PAGE;
 
-  for (const { author, id, image, title } of
-    matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE)) {
-    const bookPreview = createBookPreviewElement({ author, id, image, title });
-    fragment.appendChild(bookPreview);
+  for (const { author, id, image, title } of matches.slice(startingIndex, endingIndex)) {
+    const bookPreview = new BookPreviewElement({ author, id, image, title }); // creates preview
+    fragment.appendChild(bookPreview.getElement()); // Get and append the element from the class
   }
 
   document.querySelector('[data-list-items]').appendChild(fragment);
   page += 1;
+
+  // Update 'Show more' button
+  const remainingBooks = matches.length - (page * BOOKS_PER_PAGE);
+  const listButton = document.querySelector('[data-list-button]');
+  listButton.disabled = remainingBooks < 1;
+  listButton.querySelector('.list__remaining').textContent = ` (${Math.max(0, remainingBooks)})`;
 }
 
 document.querySelector('[data-list-button]').addEventListener('click', displayNextPageOfBookPreviews);
